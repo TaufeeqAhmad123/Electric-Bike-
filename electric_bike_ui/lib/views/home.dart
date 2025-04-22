@@ -65,8 +65,117 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(height: 25),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                summaryWidget(name: 'Usage time', subtittle: '23H 20M'),
+                summaryWidget(name: 'Distance', subtittle: '23 KM'),
+                summaryWidget(name: 'Calories', subtittle: '836 KCL'),
+              ],
+            ),
+            SizedBox(height: 20),
+
+            Row(
+              children: [
+                Container(
+                  height: 75,
+                  width: 300,
+                  decoration: BoxDecoration(
+                    color: yellow,
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: Colors.grey.shade400, width: 3),
+                  ),
+                  child: Row(
+                    children: [
+                      SizedBox(width: 50),
+                      Icon(
+                        Iconsax.battery_3full5,
+                        color: Colors.black,
+                        size: 40,
+                      ),
+                      Text(
+                        '86%  Battery',
+                        style: GoogleFonts.poppins(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Spacer(),
+                      Container(
+                        height: 74,
+                        width: 50,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [Colors.grey.shade600, Colors.white],
+                            begin: Alignment.centerLeft,
+                            end: Alignment.centerRight,
+                          ),
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(15),
+                            bottomRight: Radius.circular(15),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Spacer(),
+                Container(
+                  height: 75,
+                  width: 75,
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade800,
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: Colors.grey.shade400, width: 3),
+                  ),
+                  child: Center(
+                    child: Icon(Iconsax.more, color: Colors.white, size: 40),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class summaryWidget extends StatelessWidget {
+  final String name, subtittle;
+  const summaryWidget({super.key, required this.name, required this.subtittle});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 75,
+      width: 125,
+      decoration: BoxDecoration(
+        color: Colors.grey.shade800,
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            name,
+            style: GoogleFonts.poppins(
+              color: Colors.grey.shade300,
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          Text(
+            subtittle,
+            style: GoogleFonts.poppins(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
       ),
     );
   }

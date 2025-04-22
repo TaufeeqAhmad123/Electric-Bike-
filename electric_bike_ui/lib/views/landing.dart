@@ -46,7 +46,7 @@ class LandingScreen extends StatelessWidget {
               SizedBox(height: 30),
               ElevetedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/home');
+                  Navigator.pushNamed(context, '/navbar');
                 },
               ),
               SizedBox(height: 40),

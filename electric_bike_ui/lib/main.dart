@@ -1,5 +1,9 @@
+import 'package:electric_bike_ui/products/screen/product_screen.dart';
+import 'package:electric_bike_ui/products/screen/search_screen.dart';
+import 'package:electric_bike_ui/views/botton_navBar.dart';
 import 'package:electric_bike_ui/views/home.dart';
 import 'package:electric_bike_ui/views/landing.dart';
+import 'package:electric_bike_ui/views/route_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,9 +24,12 @@ class MyApp extends StatelessWidget {
         
       ),
       routes: {
-        '/': (context) => const LandingScreen(),
+        '/': (context) => const ProductListScreen(),
         // Add other routes here
         '/home': (context) => const HomeScreen(),
+        '/route': (context) => const RouteScreen(),
+        '/navbar': (context) => const BottonNavbar(),
+        '/search': (context) => const SearchScreen(),
       },
     
     );

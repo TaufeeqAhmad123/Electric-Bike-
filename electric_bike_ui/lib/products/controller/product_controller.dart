@@ -6,17 +6,22 @@ import 'package:get/get.dart';
 class ProductController extends GetxController {
   final _controller = Get.put(ServiceController());
   late Future<ProductModel> productFuture;
+  late Future<ProductModel> banner;
   late Future<List<CategoryModel>> categoryList;
+  List<Product> searchResults = [];
 
   String selectedCategory = 'all';
   @override
   void onInit() {
     
     categoryList = _controller.getCategory();
+    banner = _controller.getProducts();
     getAllProductData();
     fetchcategoryData(selectedCategory);
     super.onInit();
   }
+
+  
 
   Future<void> getAllProductData()async{
     productFuture = _controller.getProducts();
@@ -32,4 +37,5 @@ class ProductController extends GetxController {
     }
     update(); // notify listeners
   }
+
 }
